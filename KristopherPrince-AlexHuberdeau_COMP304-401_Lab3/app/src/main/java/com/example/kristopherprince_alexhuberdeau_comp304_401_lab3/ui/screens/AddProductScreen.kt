@@ -161,6 +161,17 @@ fun AddProductScreen(
                                 .weight(1f)
                                 .padding(start = 4.dp)
                         )
+                        //added for excerise 1
+                        //quantity field
+                        OutlinedTextField(
+                            value = state.quantity,
+                            onValueChange = { viewModel.updateFormState(quantity = it) },
+                            label = { Text("quantity") },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(start = 4.dp)
+                        )
                     }
 
                     Spacer(Modifier.height(16.dp))

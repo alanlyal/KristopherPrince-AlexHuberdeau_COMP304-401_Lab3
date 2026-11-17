@@ -10,5 +10,8 @@ data class Product(
     val price: Double,
     val deliveryDate: String,
     val category: String,
-    val isFavorite: Boolean
+    val isFavorite: Boolean,
+    // added for excerise 1
+    val quantity: Int
+
 )

@@ -17,6 +17,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.kristopherprince_alexhuberdeau_comp304_401_lab3.ui.viewmodel.ProductViewModel
 
+
+
 // Screen for editing an existing product
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -140,6 +142,12 @@ fun EditProductScreen(
                 Icon(Icons.Default.Edit, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
                 Text("Save")
+            }
+            //added for excerise 1
+            //cancel button
+            OutlinedButton(onClick = {navController.popBackStack()})
+            {
+                Text("cancel")
             }
         }
     }

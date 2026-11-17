@@ -30,7 +30,11 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
         val deliveryDate: String = "",
         val category: String = "",
         val isFavorite: Boolean = false,
+        // updated for excerise 1
+        val quantity: String= "",
         val errors: List<String> = emptyList()
+
+
     )
 
     private val _addProductState = MutableStateFlow(AddProductState())
@@ -65,6 +69,13 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
         if (deliveryDate == null || deliveryDate.isBefore(currentDate)) {
             errors.add("Invalid delivery date")
         }
+        // added for excerise 1
+        //for quantity
+        val quantity = state.quantity.toIntOrNull()
+        if (quantity == null || quantity <=0)
+        {
+            errors.add("quantity must be higher then 0")
+        }
 
         // Category validation
         if (state.category !in listOf("Electronics", "Appliances", "Cell Phone", "Media")) {
@@ -79,6 +90,7 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
                     price = price!!,
                     deliveryDate = state.deliveryDate,
                     category = state.category,
+                    quantity = quantity!!,
                     isFavorite = state.isFavorite
                 )
             )
@@ -97,7 +109,9 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
         price: String? = null,
         deliveryDate: String? = null,
         category: String? = null,
-        isFavorite: Boolean? = null
+        isFavorite: Boolean? = null,
+        //updated for excerise 1
+        quantity: String? = null
     ) {
         _addProductState.update { current ->
             current.copy(
@@ -106,7 +120,9 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
                 price = price ?: current.price,
                 deliveryDate = deliveryDate ?: current.deliveryDate,
                 category = category ?: current.category,
-                isFavorite = isFavorite ?: current.isFavorite
+                isFavorite = isFavorite ?: current.isFavorite,
+                //updated for excerise 1
+                quantity = quantity ?: current.quantity
             )
         }
     }

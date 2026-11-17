@@ -13,7 +13,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.example.kristopherprince_alexhuberdeau_comp304_401_lab3.data.Product
-
+//added for excerise 1
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
 @Composable
 fun ProductItem(
     product: Product,
@@ -22,6 +26,29 @@ fun ProductItem(
     onToggleFavorite: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    //added for excerise 1
+
+    var confrim by remember { mutableStateOf(false) }
+    if (confrim)
+    {
+        AlertDialog(onDismissRequest = {confrim = false},
+            title = {Text("delete the product")},
+            text = {Text("do you want to delete ${product.name}")},
+            confirmButton = {TextButton(onClick = {confrim = false
+            onDelete()})
+            {
+                Text("yes")
+            }
+            },
+            dismissButton ={
+                TextButton(onClick = {confrim = false})
+                {
+                    Text("no")
+                }
+                }
+        )
+    }
+
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -63,9 +90,9 @@ fun ProductItem(
                 ) {
                     Icon(Icons.Default.Edit, "Edit")
                 }
-
+                    //updated for excercise 1
                 IconButton(
-                    onClick = onDelete,
+                    onClick = {confrim = true},
                     modifier = Modifier.testTag("delete_button")
                 ) {
                     Icon(Icons.Default.Delete, "Delete")
