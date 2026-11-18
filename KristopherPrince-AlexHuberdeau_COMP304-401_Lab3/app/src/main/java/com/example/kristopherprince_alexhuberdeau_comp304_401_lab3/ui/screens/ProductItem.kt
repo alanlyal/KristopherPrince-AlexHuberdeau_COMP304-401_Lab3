@@ -32,18 +32,18 @@ fun ProductItem(
     if (confrim)
     {
         AlertDialog(onDismissRequest = {confrim = false},
-            title = {Text("delete the product")},
-            text = {Text("do you want to delete ${product.name}")},
+            title = {Text("Delete the product")},
+            text = {Text("Do you want to delete ${product.name}")},
             confirmButton = {TextButton(onClick = {confrim = false
             onDelete()})
             {
-                Text("yes")
+                Text("Yes")
             }
             },
             dismissButton ={
                 TextButton(onClick = {confrim = false})
                 {
-                    Text("no")
+                    Text("No")
                 }
                 }
         )

@@ -147,7 +147,7 @@ fun EditProductScreen(
             //cancel button
             OutlinedButton(onClick = {navController.popBackStack()})
             {
-                Text("cancel")
+                Text("Cancel")
             }
         }
     }

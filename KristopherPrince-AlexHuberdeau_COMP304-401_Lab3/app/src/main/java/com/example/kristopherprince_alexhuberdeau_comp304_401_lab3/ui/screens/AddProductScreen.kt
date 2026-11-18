@@ -166,7 +166,7 @@ fun AddProductScreen(
                         OutlinedTextField(
                             value = state.quantity,
                             onValueChange = { viewModel.updateFormState(quantity = it) },
-                            label = { Text("quantity") },
+                            label = { Text("Quantity") },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                             modifier = Modifier
                                 .weight(1f)

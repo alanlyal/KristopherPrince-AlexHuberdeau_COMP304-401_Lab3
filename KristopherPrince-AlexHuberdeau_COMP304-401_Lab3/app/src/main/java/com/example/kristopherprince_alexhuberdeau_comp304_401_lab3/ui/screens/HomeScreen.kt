@@ -48,10 +48,10 @@ fun HomeScreen(
             TopAppBar(
                 title = { Text("Product List") },
                 actions = {
-                    IconButton(onClick = { navController.navigate("favorites") }) {
+                    IconButton(onClick = { navController.navigate("Favorites") }) {
                         Icon(Icons.Default.Favorite, contentDescription = "Favorites")
                     }
-                    IconButton(onClick = { navController.navigate("add") }) {
+                    IconButton(onClick = { navController.navigate("Add") }) {
                         Icon(Icons.Default.Add, contentDescription = "Add Product")
                     }
                 }
@@ -63,7 +63,7 @@ fun HomeScreen(
         {
             OutlinedTextField(
                 value = searchId, onValueChange = { searchId = it },
-                label = { Text("search product by id") },
+                label = { Text("Search product by id") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 6.dp)
